@@ -1,0 +1,7 @@
+{{ attach_library('miafemtech_geolocation/geolocation') }}
+
+{% include "@molecules/geolocation/geolocation.twig" with {
+  geolocation_text: geolocation_text,
+  country_long_name: country.long_name,
+} %}
+

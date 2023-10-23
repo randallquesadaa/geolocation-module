@@ -1,0 +1,6 @@
+name: miafemtech_geolocation
+type: module
+description: This module provides configuration of custom forms.
+package: Custom
+version: 1.0
+core_version_requirement: ^9 || ^10

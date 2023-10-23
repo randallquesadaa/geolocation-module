@@ -1,0 +1,10 @@
+services:
+  geolocation:
+    class: Drupal\miafemtech_geolocation\Geolocation
+    arguments: ['@config.factory']
+
+  language_redirect:
+    class: Drupal\miafemtech_geolocation\EventSubscriber\LanguageRedirect
+    arguments: ['@geolocation']
+    tags:
+      - { name: event_subscriber }

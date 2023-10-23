@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function miafemtech_geolocation_theme() {
+  return [
+    'geolocation' => [
+      'variables' => [
+        'geolocation_text' => '',
+        'country' => [],
+      ],
+    ],
+  ];
+}
