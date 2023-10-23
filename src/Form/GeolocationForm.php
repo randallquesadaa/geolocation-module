@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\miafemtech_geolocation\Form;
+namespace Drupal\geolocation_module\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -22,7 +22,7 @@ class GeolocationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'miafemtech_geolocation.geolocation_form',
+      'geolocation_module.geolocation_form',
     ];
   }
 
@@ -30,7 +30,7 @@ class GeolocationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('miafemtech_geolocation.geolocation_form');
+    $config = $this->config('geolocation_module.geolocation_form');
     $form['google_cloud_api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Google Cloud APIs Key'),
@@ -49,7 +49,7 @@ class GeolocationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->config('miafemtech_geolocation.geolocation_form')
+    $this->config('geolocation_module.geolocation_form')
       ->set('google_cloud_api_key', $form_state->getValue('google_cloud_api_key'))
       ->set('geolocation_block_text', $form_state->getValue('geolocation_block_text'))
       ->save();

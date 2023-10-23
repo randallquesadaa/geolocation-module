@@ -1,0 +1,12 @@
+geolocation_module.custom_settings:
+  title: 'Custom Settings'
+  route_name: '<nolink>'
+  parent: system.admin_config
+  weight: 99
+
+geolocation_module.geolocation_config:
+  title: 'Geolocation Form'
+  route_name: geolocation_module.geolocation_config
+  description: 'Config Geolocation Block'
+  parent: geolocation_module.custom_settings
+  weight: 0

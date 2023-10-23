@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\miafemtech_geolocation;
+namespace Drupal\geolocation_module;
 
 use Drupal\Core\Config\ConfigFactory;
 use GuzzleHttp\Client;
@@ -29,7 +29,7 @@ class Geolocation {
    */
   public function getCoordinates() {
     $client = new Client();
-    $config = $this->configFactory->get('miafemtech_geolocation.geolocation_form');
+    $config = $this->configFactory->get('geolocation_module.geolocation_form');
     $api_key = $config->get('google_cloud_api_key');
     $url = "https://www.googleapis.com/geolocation/v1/geolocate?key={$api_key}";
 
@@ -51,7 +51,7 @@ class Geolocation {
    * {@inheritdoc}
    */
   function getCountry() {
-    $config = $this->configFactory->get('miafemtech_geolocation.geolocation_form');
+    $config = $this->configFactory->get('geolocation_module.geolocation_form');
     $coordinates = $this->getCoordinates();
     if ($coordinates) {
       $lat = $coordinates['location']['lat'];

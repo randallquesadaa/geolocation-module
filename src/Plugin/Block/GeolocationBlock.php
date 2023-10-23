@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\miafemtech_geolocation\Plugin\Block;
+namespace Drupal\geolocation_module\Plugin\Block;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\miafemtech_geolocation\Geolocation;
+use Drupal\geolocation_module\Geolocation;
 
 /**
  * Provides a 'Geolocation' Block.
@@ -29,7 +29,7 @@ class GeolocationBlock extends BlockBase implements ContainerFactoryPluginInterf
   /**
    * The custom service.
    *
-   * @var \Drupal\miafemtech_geolocation\Geolocation
+   * @var \Drupal\geolocation_module\Geolocation
    */
   protected $geolocation;
 
@@ -44,7 +44,7 @@ class GeolocationBlock extends BlockBase implements ContainerFactoryPluginInterf
    *   The plugin implementation definition.
    * @param Drupal\Core\Config\ConfigFactory $config_factory
    *   The ConfigFactory manager.
-   * @param Drupal\miafemtech_geolocation\Geolocation $geolocation
+   * @param Drupal\geolocation_module\Geolocation $geolocation
    *   The Geolocation service.
    */
   public function __construct(
@@ -96,7 +96,7 @@ class GeolocationBlock extends BlockBase implements ContainerFactoryPluginInterf
   public function build() {
     $cookie = $_COOKIE['country'] ?? NULL;
     $country = $cookie ? $cookie : $this->geolocation->getCountry();
-    $config = $this->configFactory->get('miafemtech_geolocation.geolocation_form');
+    $config = $this->configFactory->get('geolocation_module.geolocation_form');
     $geolocation_text = $config->get('geolocation_block_text');
     $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 

@@ -1,7 +1,7 @@
-miafemtech_geolocation.geolocation_config:
+geolocation_module.geolocation_config:
   path: '/admin/elsa-config/geolocation-form'
   defaults:
-    _form: '\Drupal\miafemtech_geolocation\Form\GeolocationForm'
+    _form: '\Drupal\geolocation_module\Form\GeolocationForm'
     _title: 'Geolocation Form'
   requirements:
     _permission: 'custom elsa configuration'
