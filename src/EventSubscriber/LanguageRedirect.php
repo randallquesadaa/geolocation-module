@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\miafemtech_geolocation\EventSubscriber;
+namespace Drupal\geolocation_module\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\miafemtech_geolocation\Geolocation;
+use Drupal\geolocation_module\Geolocation;
 
 /**
 * Event subscriber para redireccionar antes de cargar la página.
@@ -17,14 +17,14 @@ class LanguageRedirect implements EventSubscriberInterface {
   /**
    * The geolocation service.
    *
-   * @var \Drupal\miafemtech_geolocation\Geolocation
+   * @var \Drupal\geolocation_module\Geolocation
    */
   protected $geolocation;
 
   /**
    * Constructs a contruct the object.
    *
-   * @param Drupal\miafemtech_geolocation\Geolocation $geolocation
+   * @param Drupal\geolocation_module\Geolocation $geolocation
    *   The Geolocation service.
    */
   public function __construct(Geolocation $geolocation) {

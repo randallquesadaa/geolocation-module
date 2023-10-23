@@ -3,7 +3,7 @@
 /**
  * Implements hook_theme().
  */
-function miafemtech_geolocation_theme() {
+function geolocation_module_theme() {
   return [
     'geolocation' => [
       'variables' => [
