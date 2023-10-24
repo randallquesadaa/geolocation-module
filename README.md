@@ -1,0 +1,15 @@
+# Geolocation Module
+## Use Case:
+Detection and Country Redirection for Multilingual Drupal Website
+
+### Summary:
+The client owns a website implemented in Drupal that provides support for multiple languages. The objective is to develop a solution that detects the user's geographical location upon entering the site and, based on this, redirects them to the homepage of their country.
+
+### Solution:
+A custom module was developed that utilizes a Google-provided API to retrieve the country code. To ensure the security of the Google API Key, a [custom form](https://github.com/randallquesadaa/geolocation-module/blob/main/src/Form/GeolocationForm.php) was designed to securely store this key, preventing its default exposure in the module. Subsequently, a [service](https://github.com/randallquesadaa/geolocation-module/blob/main/src/Geolocation.php) was created to gather the geographical coordinates of the user and utilize this information to ascertain the country, either by its short code (e.g., "CR") or its full name (e.g., "Costa Rica").
+Furthermore, a [redirection](https://github.com/randallquesadaa/geolocation-module/blob/main/src/EventSubscriber/LanguageRedirect.php) mechanism based on the user's region was implemented. To achieve this, a set of system languages was established, each with an associated list of countries. For instance, the Spanish language could encompass Spain, Costa Rica, Chile, among others. It is worth noting that this redirection occurs prior to the full loading of the website, eliminating the need for a double load and ensuring a seamless user experience.
+Also, a [custom permission](https://github.com/randallquesadaa/geolocation-module/blob/main/geolocation_module.permissions.yml) was designed to restrict access to the form and prevent any user from modifying the secret key. Additionally, an element was [added to the system menu](https://github.com/randallquesadaa/geolocation-module/blob/main/geolocation_module.links.menu.yml) to provide easy access from the administrative menu.
+
+Important note:
+- Within the module, a [custom block](https://github.com/randallquesadaa/geolocation-module/blob/main/src/Plugin/Block/GeolocationBlock.php) and a [JavaScript library](https://github.com/randallquesadaa/geolocation-module/blob/main/js/geolocation.js) are included. These components were initially developed to implement a feature aimed at detecting the user's geographical location upon site access. Based on this information, the user is presented with the option to be redirected to the version corresponding to their country of origin. If the user selects this option, they are automatically directed to the homepage of their country, and subsequent visits are redirected without the need for user intervention. Conversely, if the user chooses not to be redirected, they can navigate the site in the usual manner. Nevertheless, periodic prompts are presented to inquire whether the user wishes to switch to their country's version.
+- The files were not deleted since this function may be utilized at a later stage.
